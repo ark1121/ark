@@ -1,0 +1,27 @@
+閾値を4パターン設定し、閾値処理した画像を示す。
+
+閾値処理を施すにあたって、原画像を下記のコードを用いて白黒濃淡画像へ変換する。
+これにより生成された画像を図3.1に示す。
+
+ORG=imread('nekouc.jpg'); % 原画像の入力
+ORG= rgb2gray(ORG); % カラー画像を白黒濃淡画像へ変換
+
+![default](https://user-images.githubusercontent.com/32251528/35198716-ce891c1e-ff3e-11e7-9041-4ccd54e2296a.jpg)
+図3.1 白黒濃淡画像
+
+この画像に対して閾値を64,96,128,192と定めたコードを下記、及びそれにより生成された画像を図3.2～図3.5に示す。
+
+![sikii64](https://user-images.githubusercontent.com/32251528/35198720-d3a8f890-ff3e-11e7-85cc-322dad4f7ff3.jpg)
+図3.2 閾値64
+
+![sikii96](https://user-images.githubusercontent.com/32251528/35198721-d5aeacb6-ff3e-11e7-9c6c-e80711ebc0d3.jpg)
+図3.3 閾値96
+
+![sikii128](https://user-images.githubusercontent.com/32251528/35198722-d6888d78-ff3e-11e7-962e-5809f30579ad.jpg)
+図3.4 閾値128
+
+![sikii192](https://user-images.githubusercontent.com/32251528/35198723-d7f8e07c-ff3e-11e7-9b00-8eb3730b522b.jpg)
+図3.5 閾値192
+
+このように、閾値処理した画像は光量を感覚的に知る事のできる画像になる。
+
