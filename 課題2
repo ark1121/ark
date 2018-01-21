@@ -7,7 +7,7 @@ ORG=imread('nekouc.jpg'); % 原画像の入力
 ORG = rgb2gray(ORG); colormap(gray); colorbar;
 imagesc(ORG); axis image; % 画像の表示
 
-![nokaityou](ark/課題の画像/課題02画像/nokaityou.jpg)
+![nokaityou](https://user-images.githubusercontent.com/32251528/35198699-9d0f3f10-ff3e-11e7-8dbb-ad0a94d10cc0.jpg)
 図2.1 モノクロ画像
 
 2諧調画像を作るにあたって、下記のコードを用いて閾値ORGに基づいて画像を編集したものを図2.2に示す。
@@ -32,13 +32,13 @@ IMG3 = ORG>256;
 IMG = IMG0 + IMG1 + IMG2 + IMG3;
 imagesc(IMG); colormap(gray); colorbar;  axis image;
 
-![2kaityou](ark/課題の画像/課題02画像/2kaityou.jpg)
+![2kaityou](https://user-images.githubusercontent.com/32251528/35198700-9f7868d0-ff3e-11e7-9a47-b7dc1b36df24.jpg)
 図2.2 2諧調の画像
 
-![4kaityou](ark/課題の画像/課題02画像/4kaityou.jpg)
+![4kaityou](https://user-images.githubusercontent.com/32251528/35198701-a071d35c-ff3e-11e7-9ceb-040417b49ccb.jpg)
 図2.3 4諧調の画像
 
-![8kaityou](ark/課題の画像/課題02画像/8kaityou.jpg)
+![8kaityou](https://user-images.githubusercontent.com/32251528/35198703-a127f7ea-ff3e-11e7-873c-76de85511492.jpg)
 図2.4 8諧調の画像
 
 このように、諧調を変えると輪郭が際立つ事が判る。
