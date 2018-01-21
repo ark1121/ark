@@ -8,8 +8,8 @@ imagesc(ORG); axis image; % 画像の表示
 
 によって原画像を読み込んだ結果を図1.1に示す。
 
-![原画像](https://github.com/ark1121/ark/blob/master/課題の画像/課題01画像/1no1.jpg?raw=true)
-図1 原画像
+![1no1](https://user-images.githubusercontent.com/32251528/35198391-f6a1093c-ff39-11e7-97d2-5398368664dd.jpg)
+図1.1 原画像
 
 原画像を1/2にサンプリングする場合、画像を縮小してその画像を元のサイズに戻してやればよい。
 1/4、1/8...画像に関しても縮小した画像を更に縮小、拡大することでサンプリングできる。
@@ -19,8 +19,20 @@ IMG = imresize(ORG,0.5); % 画像の縮小
 IMG2 = imresize(IMG,2,'box'); % 画像の拡大
 imagesc(IMG2); axis image; % 画像の表示
 
+![1no2](https://user-images.githubusercontent.com/32251528/35198399-204e27d8-ff3a-11e7-91a7-475eb9e6d653.jpg)
+図1.2 1/2サンプリング
 
+同様にしてサンプリングした結果を以下図1.3～1.6に示す。
 
+![1no4](https://user-images.githubusercontent.com/32251528/35198402-238a92e2-ff3a-11e7-9885-388e3e1d678a.jpg)
+図1.3 1/4サンプリング結果
 
+![1no8](https://user-images.githubusercontent.com/32251528/35198403-24ce727c-ff3a-11e7-84e2-7e9dcbd37841.jpg)
+図1.4 1/8サンプリング結果
 
+![1no16](https://user-images.githubusercontent.com/32251528/35198404-25849a70-ff3a-11e7-82be-21a9d73651a3.jpg)
+図1.5 1/16サンプリング結果
+
+![1no32](https://user-images.githubusercontent.com/32251528/35198405-265aee5e-ff3a-11e7-9c75-03270b9f5cef.jpg)
+図1.6 1/32サンプリング結果
 
