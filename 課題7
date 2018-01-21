@@ -1,0 +1,34 @@
+画像のダイナミックレンジを0から255にする。
+まず、原画像を白黒濃淡画像へ変換するコードを下記、およびその画像、濃度ヒストグラムを図7.1、図7.2に示す。
+
+ORG = imread('nekouc.jpg'); % 画像の読み込み
+ORG = rgb2gray(ORG); % 白黒濃淡画像に変換
+imagesc(ORG); colormap(gray); colorbar; % 画像の表示
+
+imhist(ORG); % 濃度ヒストグラムを生成、表示
+
+![default](https://user-images.githubusercontent.com/32251528/35199122-65ef9244-ff45-11e7-8424-f2f62b4fe7cd.jpg)
+図7.1　白黒濃淡画像
+
+![default](https://user-images.githubusercontent.com/32251528/35199123-67c4560e-ff45-11e7-98a8-9e7475eb2a0e.jpg)
+図7.2 白黒濃淡画像の濃度ヒストグラム
+
+画像のダイナミックレンジを0~255にするコードを下記、および画像を図7.3、濃度ヒストグラムを図7.4に示す。
+
+ORG = double(ORG);
+mn = min(ORG(:)); % 濃度値の最小値を算出
+mx = max(ORG(:)); % 濃度値の最大値を算出
+ORG = (ORG-mn)/(mx-mn)*255;
+imagesc(ORG); colormap(gray); colorbar; % 画像の表示
+
+ORG = uint8(ORG); % この行について考察せよ
+imhist(ORG); % 濃度ヒストグラムを生成、表示
+
+![255](https://user-images.githubusercontent.com/32251528/35199124-6d3d106c-ff45-11e7-8b05-f41232bd8e23.jpg)
+図7.3 ダイナミックレンジ0~255
+
+![255](https://user-images.githubusercontent.com/32251528/35199125-6eb824ae-ff45-11e7-9955-83f6f342429b.jpg)
+図7.4 ダイナミックレンジを0~255にした時の濃度ヒストグラム
+
+ダイナミックレンジを0~255にするにあたって、コード6行目において、0~255までの値をとるuint変数に画像を代入することで、
+ダイナミックレンジを無理矢理0~255まで引き延ばしたものと考えられる。
