@@ -1,0 +1,18 @@
+画像の濃度ヒストグラムを知るため、次のコードを用いて原画像を白黒濃淡画像へ変換する。
+また、それにより生成された画像を図4.1に示す。
+
+ORG=imread('nekouc.jpg'); % 原画像の入力
+ORG=rgb2gray(ORG); % カラー画像を白黒濃淡画像へ変換
+imagesc(ORG); colormap(gray); colorbar;
+
+![default](https://user-images.githubusercontent.com/32251528/35198832-50d160ea-ff40-11e7-9fba-67fcefac421e.jpg)
+図4.1 白黒濃淡画像
+
+そして、その画像のヒストグラムを下記のコードで表示したものが図4.2となる。
+
+imhist(ORG); % ヒストグラムの表示
+
+![default](https://user-images.githubusercontent.com/32251528/35198833-53bcddc0-ff40-11e7-9a14-d762e0cb00e5.jpg)
+図4.2 濃度ヒストグラム
+
+図4.2より、この白黒濃淡画像は比較的黒に寄っているが、中間の濃度であるグレーが多くを占めている事が判る。
