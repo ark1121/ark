@@ -1,0 +1,35 @@
+プレウィット法、ソベル法、キャニー法を用いてエッジ検出を行う。
+
+まず、白黒画像に原画像を変換する。
+そのためのコードを下記、およびその画像を図10.1に示す。
+
+ORG = imread('nekouc.jpg'); % 原画像の入力
+ORG = rgb2gray(ORG); %カラーからグレイへの変換
+imagesc(ORG); colormap('gray'); colorbar;% 画像表示
+
+![default](https://user-images.githubusercontent.com/32251528/35199746-2db9e70e-ff4e-11e7-9cc9-78fa22399a02.jpg)
+図10.1 白黒画像
+
+次に、画像をプレウィット法、ソベル法、キャニー法を用いてエッジ検出をする。
+そのためのコードを下記、および画像をぞれぞれ図10.2、図10.3、図10.4に示す。
+
+IMG = edge(ORG,'prewitt'); % エッジ抽出（プレウィット法）
+imagesc(IMG); colormap('gray'); colorbar;% 画像表示
+
+IMG = edge(ORG,'sobel'); % エッジ抽出（ソベル法）
+imagesc(IMG); colormap('gray'); colorbar;% 画像表示
+
+IMG = edge(ORG,'canny'); % エッジ抽出（キャニー法）
+imagesc(IMG); colormap('gray'); colorbar;% 画像表示
+
+
+![default](https://user-images.githubusercontent.com/32251528/35199747-2f124d1c-ff4e-11e7-8041-c05614b7d25c.jpg)
+図10.2 プレウィット法でエッジ検出
+
+![default](https://user-images.githubusercontent.com/32251528/35199750-3075bc02-ff4e-11e7-88e3-3cd7baa062ee.jpg)
+図10.3 ソベル法でエッジ検出
+
+![default](https://user-images.githubusercontent.com/32251528/35199751-3230b240-ff4e-11e7-8438-d8648fa39089.jpg)
+図10.4 キャニー法でエッジ検出
+
+比較的にソベル法が正しく物の輪郭を検出できているように見えるが、色の濃さ(影等)の輪郭も含めるとキャニー法もなかなか綺麗にエッジ検出が出来る事が判った。
