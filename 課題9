@@ -1,0 +1,42 @@
+ノイズのかかった画像に対してメディアンフィルター(と平滑化フィルタ)を用いてノイズ除去をする。
+
+まず、白黒濃淡画像に原画像を変換し、その後その画像にノイズを添付する。
+そのためのコードを下記、及びノイズ添付前、ノイズ添付後の画像をそれぞれ図9.1、図9.2に示す。
+
+ORG = imread('nekouc.jpg'); % 画像の読み込み
+ORG = rgb2gray(ORG); % 白黒濃淡画像に変換
+imagesc(ORG); colormap(gray); colorbar; % 画像の表示
+
+ORG = imnoise(ORG,'salt & pepper',0.02); % ノイズ添付
+imagesc(ORG); colormap(gray); colorbar; % 画像の表示
+
+![default](https://user-images.githubusercontent.com/32251528/35199482-18028500-ff4a-11e7-8171-05053fe0b7d4.jpg)
+図9.1 白黒濃淡画像
+
+![solt pepper](https://user-images.githubusercontent.com/32251528/35199483-1ae1c66e-ff4a-11e7-890c-c76f4432bc54.jpg)
+図9.2 ノイズ添付
+
+平滑化フィルタ、メディアンフィルタ、及び設計したフィルタにてノイズ除去をする。
+そのためのコードを下記、またそれぞれの画像を図9.3、図9.4、図9.5に示す。
+
+IMG = filter2(fspecial('average',3),ORG); % 平滑化フィルタで雑音除去
+imagesc(IMG); colormap(gray); colorbar; % 画像の表示
+
+IMG = medfilt2(ORG,[3 3]); % メディアンフィルタで雑音除去
+imagesc(IMG); colormap(gray); colorbar; % 画像の表示
+
+f=[0,-1,0;-1,5,-1;0,-1,0]; % フィルタの設計
+IMG = filter2(f,IMG,'same'); % フィルタの適用
+imagesc(IMG); colormap(gray); colorbar; % 画像の表示
+
+![solt pepper](https://user-images.githubusercontent.com/32251528/35199556-7888fac0-ff4b-11e7-90a4-db552966f9cc.jpg)
+図9.3 平滑化フィルタでノイズ除去
+
+![solt pepper](https://user-images.githubusercontent.com/32251528/35199558-7a1919f6-ff4b-11e7-9531-d6d20a7b7e3a.jpg)
+図9.4 メディアンフィルタでノイズ除去
+
+![default](https://user-images.githubusercontent.com/32251528/35199559-7b9a1a46-ff4b-11e7-8ca6-09ca9b43169f.jpg)
+図9.5 設計フィルタでノイズ除去
+
+
+平滑化フィルタでもある程度ノイズは目立たなくなったが、メディアンフィルタのノイズ除去性能と比べるとかなり見劣りする事が判った。
