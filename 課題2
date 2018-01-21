@@ -1,4 +1,4 @@
-2諧調、4諧調、8諧調画像を生成するにあたって、課題1と同様nekouc.jpgを用いる。
+諧調、4諧調、8諧調画像を生成するにあたって、課題1と同様nekouc.jpgを用いる。
 
 下記のコードによって原画像をモノクロにし、更に読み込む。
 その読み込み結果は図2.1に示す。
@@ -7,7 +7,7 @@ ORG=imread('nekouc.jpg'); % 原画像の入力
 ORG = rgb2gray(ORG); colormap(gray); colorbar;
 imagesc(ORG); axis image; % 画像の表示
 
-![nokaityou](ark/課題の画像/課題02画像/nokaityou.jpg )
+![nokaityou](ark/課題の画像/課題02画像/nokaityou.jpg)
 図2.1 モノクロ画像
 
 2諧調画像を作るにあたって、下記のコードを用いて閾値ORGに基づいて画像を編集したものを図2.2に示す。
@@ -32,13 +32,13 @@ IMG3 = ORG>256;
 IMG = IMG0 + IMG1 + IMG2 + IMG3;
 imagesc(IMG); colormap(gray); colorbar;  axis image;
 
-![2kaityou](ark/課題の画像/課題02画像/2kaityou.jpg )
+![2kaityou](ark/課題の画像/課題02画像/2kaityou.jpg)
 図2.2 2諧調の画像
 
-![4kaityou](ark/課題の画像/課題02画像/4kaityou.jpg )
+![4kaityou](ark/課題の画像/課題02画像/4kaityou.jpg)
 図2.3 4諧調の画像
 
-![8kaityou](ark/課題の画像/課題02画像/8kaityou.jpg )
+![8kaityou](ark/課題の画像/課題02画像/8kaityou.jpg)
 図2.4 8諧調の画像
 
 このように、諧調を変えると輪郭が際立つ事が判る。
