@@ -36,3 +36,4 @@ imagesc(IMG2); axis image; % 画像の表示
 ![1no32](https://user-images.githubusercontent.com/32251528/35198405-265aee5e-ff3a-11e7-9c75-03270b9f5cef.jpg)
 図1.6 1/32サンプリング結果
 
+このように、サンプリング幅が大きくなるとモザイク状にサンプリングゆがみが発生する。
