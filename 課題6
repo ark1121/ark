@@ -1,0 +1,29 @@
+ティザ法及び閾値128によって画像の2値化を行う。
+まず、原画像を白黒濃淡画像へ変換するためのコードを下記、その画像を図6.1に示す。
+
+ORG=imread('nekouc.jpg'); % 原画像の入力
+ORG = rgb2gray(ORG);
+imagesc(ORG); colormap(gray); colorbar; % 画像の表示
+
+![default](https://user-images.githubusercontent.com/32251528/35198991-dd34649a-ff42-11e7-95cf-004a2477f1a0.jpg)
+図6.1 白黒濃淡画像
+
+閾値128にて2値化を行う場合のコード、および画像を図6.2に示す。
+
+IMG = ORG>128; % 128による二値化
+imagesc(IMG); colormap(gray); colorbar; % 画像の表示
+
+![128 2](https://user-images.githubusercontent.com/32251528/35198992-e0d7bf7a-ff42-11e7-9692-808cc3c75bab.jpg)
+図6.2 閾値128による2値化
+
+ティザ法による2値化を行う場合のコード、および画像を図6.3に示す。
+
+IMG = dither(ORG); % ディザ法による二値化
+imagesc(IMG); colormap(gray); colorbar; % 画像の表示
+
+![2](https://user-images.githubusercontent.com/32251528/35198993-e2bdb998-ff42-11e7-975a-3ba23c5f3ee3.jpg)
+図6.3 ティザ法による2値化
+
+
+図6.2と図6.3を見る限り、閾値をきちんと決めた方が2値化をするにあたって画素同士の連結が考慮されるため、
+今回用いたような風景写真のようなタイプには向かないのだろうと考える。逆に、絵画等の濃度が一定である画像に対しては有効な手段かもしれない。
